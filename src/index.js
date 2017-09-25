@@ -1,9 +1,11 @@
+'use strict'
 module.exports = function multiply(first, second) {
     let arrFirst = [];
     let arrSecond = [];
     let temp = [];
+    let i
 
-    for (let i=0; i<first.length; i++) {
+    for (i=0; i<first.length; i++) {
         arrFirst.unshift(first[i]);
     }
     for (i=0; i<second.length; i++) {
@@ -27,9 +29,9 @@ module.exports = function multiply(first, second) {
     let result ='';
     for (i=0; i<temp.length-1; i++) {
         temp[i+1] += Math.floor(temp[i]/10);
-        temp[i] -= Math.floor(temp[i]/10)*10;
+        temp[i] %=10;
         result = temp[i]+result;
     }
     result =temp[temp.length-1]+result;
-    return `${result}`;
+    return result
 };
